@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "parser-headhunter-superjob"
+version = "0.1.0"
+description = ""
+authors = ["Alexander Pshenichnyy <ter.anti@mail.ru>"]
+readme = "README.md"
+packages = [{include = "parser_headhunter_superjob"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

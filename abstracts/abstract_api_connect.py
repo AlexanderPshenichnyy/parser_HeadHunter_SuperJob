@@ -1,14 +1,22 @@
 from abc import ABC, abstractmethod
 
 
-class API(ABC):
+class VacancyByAPI(ABC):
 	"""
-	Абстрактный класс для шаблонизации запросов по API
+	Абстрактный класс для работы с платформами для сбора вакансий через API
 	"""
 
 	@abstractmethod
-	def get_vacancies_out_of_api(self, vacancy_name):
+	def get_vacancies_by_api(self, vacancy_title: str) -> list:
 		"""
-		Получает список словарей вакансий из API
+		Получает список вакансий по API
+		"""
+		pass
+
+	@staticmethod
+	@abstractmethod
+	def organize_vacancy_info(vacancy_data: list) -> list:
+		"""
+		Организует данные о вакансиях в определённом виде
 		"""
 		pass

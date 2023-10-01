@@ -1,14 +1,31 @@
-from abc import ABC, abstractmethod
+from abc import abstractmethod, ABC
 
 
-class Saver(ABC):
-	"""
-	Абстрактный класс для сохранения файлов с информацией по отобранным вакансиям
-	"""
+class VacancySaver(ABC):
+    @abstractmethod
+    def save_vacancies_to_json(self, vacancy_list):
+        """
+        Сохраняет вакансии в JSON-файл
+        :param vacancy_list: список с вакансиями
+        """
+        pass
 
-	@abstractmethod
-	def save_to_json(self, vacancy_data):
-		"""
-		Сохраняет список вакансий в json файл
-		"""
-		pass
+    @abstractmethod
+    def load_vacancies(self):
+        """Загружает данные из файла с вакансиями"""
+        pass
+
+    @abstractmethod
+    def json_to_instances(self, class_name):
+        """
+        Преобразует словари из файла в экземпляры класса
+        :param class_name: Имя класса, в экземпляры которого будут преобразованы словари
+        """
+        pass
+
+    @abstractmethod
+    def clear_json_with_vacancies(self):
+        """
+        Очищает файл с вакансиями
+        """
+        pass
